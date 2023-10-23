@@ -3,6 +3,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
     let gameState = Array(9).fill(null);
     let currentPlayer = 'X';
     let status = document.querySelector('#status');
+    let newGameButton = document.querySelector('.btn');
   
     squares.forEach((square, index) => {
       square.classList.add('square');
@@ -27,6 +28,17 @@ document.addEventListener('DOMContentLoaded', (event) => {
       });
       square.addEventListener('mouseout', () => {
         square.classList.remove('hover');
+      });
+    });
+  
+    newGameButton.addEventListener('click', () => {
+      gameState = Array(9).fill(null);
+      currentPlayer = 'X';
+      status.textContent = '';
+      status.classList.remove('you-won');
+      squares.forEach(square => {
+        square.textContent = '';
+        square.classList.remove('X', 'O', 'hover');
       });
     });
   });
