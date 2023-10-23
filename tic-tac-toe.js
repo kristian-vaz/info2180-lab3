@@ -13,5 +13,14 @@ document.addEventListener('DOMContentLoaded', (event) => {
           currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
         }
       });
+  
+      square.addEventListener('mouseover', () => {
+        if (gameState[index] === null) {
+          square.classList.add('hover');
+        }
+      });
+      square.addEventListener('mouseout', () => {
+        square.classList.remove('hover');
+      });
     });
   });
